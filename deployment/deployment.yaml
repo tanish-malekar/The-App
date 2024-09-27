@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: the-app-deployment
+  labels:
+    app: the-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: the-app
+  template:
+    metadata:
+      labels:
+        app: the-app
+    spec:
+      containers:
+      - name: the-app
+        image: tanishdocker/the-app-image:latest
+        ports:
+        - containerPort: 3000
+
+
